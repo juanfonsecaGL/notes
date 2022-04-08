@@ -1,0 +1,167 @@
+Referencias
+---
+https://en.wikipedia.org/wiki/Software_design_pattern
+
+Patrones usados 
+---
+1. Factory (Models/SP, Models/Vendor, Models/Selenium)
+2. Dependency injection (Steps, Settings)
+3. Proxy - DBHelper
+4. Chain of responsability (to be used in SP's CreateFirstResponse)
+
+OOO
+---
+- polimorfismo
+- herencia
+- encapsulamiento
+- abstraccion
+
+SOLID
+
+Factory (poliformismo)
+---
+class BaseDocument{
+    string filename;
+    string abstract type {get;}
+    void load(){}
+}
+
+class TextDocument : BaseDocument{
+    string override type { get{"text"}; }
+}
+
+class SpreadsheetDocument : BaseDocument{
+    string override type { get{"spreadsheet"}; }
+}
+
+static class DocumentFactory{
+    BaseDocument createDocument(string documentType){
+        switch(){
+            case 'text':
+                return new TextDocument();
+            case 'spreadsheet':
+                return new SpreadsheetDocument();
+            default:
+                throw new ExceptionNotImplement("Document %s not implemented." % documentType);
+        }
+    }
+}
+
+...
+
+
+class SurpriseDocument : BaseDocument{
+    string override type { get{"surprise"}; }
+}
+
+// 
+STEP: And I create a "spreadsheet" document for the user
+STEP: And I create a "spreadsheet" document for an online user
+
+void andICreateADocumentForTheUser(string documentType){
+    if(documentType=="spreadsheet"){
+        document = new SpreadsheetDocument();
+    }else if(...){} 
+}
+
+void andICreateADocumentForAnOnlineUser(string documentType){
+    if(documentType=="spreadsheet"){
+        document = new SpreadsheetDocument();
+    }else if(...){}
+}
+
+void andICreateADocumentForTheUser(string documentType){
+    document = DocumentFactory.createDocument(documentType);
+}
+
+void andICreateADocumentForAnOnlineUser(string documentType){
+    document = DocumentFactory.createDocument(documentType);
+}
+
+Dependency injection
+---
+class Main(){
+    public void main(){
+        string tutor = "Luis Arce";
+        Mochila mochila = new Mochila(){"cuardernos","lapices"};	// e2: 0x789
+        Estudiante e1 = new Estudiante(tutor, mochila);	// e1: 0x123
+        Estudiante e2 = new Estudiante(tutor, mochila);	// e2: 0x456
+        mochila.add("calculadora");
+        e1.listarObjetosMochila() // "cuardernos","lapices","calculadora"
+        e2.listarObjetosMochila() // "cuardernos","lapices","calculadora"
+        e1.listarTutor();   // Luis Arce
+        e2.listarTutor();   // Luis Arce
+        e1.tutor="Jorge Saenz";
+        e1.listarTutor();   // Jorge Saenz
+        e2.listarTutor();   // Luis Arce
+    }
+}
+
+class Estudiante(){
+    Mochila mochila;
+    string tutor;
+    // string *tutorPt = &tutor; // esto solo funciona en C/C++
+    public Estudiante(String tutor, Mochila mochila){
+        this.tutor = tutor;    // .Net: copy, received "by value"
+        this.miMochila = mochila; // no copy, received "by reference"
+    }
+    public Estudiante(Mochila laMochila){
+        miMochila = laMochila;
+    }
+    public listarObjetosMochila(){
+        foreach(string objeto in mochila.objetos){
+            print(objeto)
+        }
+    }
+    public listarTutor(){print(tutor);}
+}
+
+Chain of responsibility
+---
+
+class Cadena{
+    Handler[] handlers = new Handler(){new hamburgesaHandler(), new papasHandler(), new refrescoHandler(), ...};
+    void procesarOrden(string[] items){
+        foreach(handler in handlers){
+            if(handler.process()){
+		break;
+            }
+        }
+    }
+
+}
+
+class Handler{
+    public abstract void proccess();
+}
+
+class HamburgesaHandler:Handler{
+     public void override process(string item){
+         if(item=="hamburguesa"){
+             // do something
+             return true;
+         }
+         return false;
+     }
+}
+
+class PapasHandler:Handler{
+     public void override process(string item){
+         if(item=="papas"){
+             // do something
+             return true;
+         }
+         return false;
+     }
+}
+
+
+
+
+
+
+
+
+
+
+
