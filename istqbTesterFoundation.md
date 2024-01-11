@@ -1,4 +1,4 @@
-# ISTQB Tester Foundation preparation
+# ISTQB Tester Foundation preparation notes
 Notes for questions failed.
 
 | Exam | Last questions covered |
