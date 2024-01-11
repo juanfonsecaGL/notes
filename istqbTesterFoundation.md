@@ -31,7 +31,7 @@ Examples of the shift-left approach:
 * If the last test result passed and the TC is rerun (this and subsequent times), it is a regression test.
 * If the last test result failed and the TC is rerun, it is a confirmation test."
 
-# 4.2.1. Equivalence Partitioning
+## 4.2.1. Equivalence Partitioning
 * Quantitative variables can be partitioned (for instance, whole numbers into negative and positive numbers).
 * Qualitative variables cannot be partitioned (each element is already a partition).
 
