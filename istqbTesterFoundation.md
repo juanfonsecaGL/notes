@@ -11,7 +11,7 @@ Coverage:
 
 ## 1.4.1. Test Activities and Tasks
 * "Causing failures and identifying defects is a test objective of dynamic testing. 
-* User requirements != design requirements (that's why we do validation)."
+* User requirements != design requirements (that's why we do validation).
 
 ## 1.4.5. Roles in Testing
 
