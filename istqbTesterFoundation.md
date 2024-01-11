@@ -1,6 +1,7 @@
 # ISTQB Tester Foundation preparation notes
-Notes for questions failed.
+Notes for questions failed during my preparation for the exam. Please note that some of the notes are taken from the answer sheets provided by ISTQB.
 
+Coverage:
 | Exam | Last questions covered |
 | --- | --- |
 | A   |  1   |
@@ -23,7 +24,7 @@ Test Manager role
 
 ## 2.1.5. Shift-Left Approach
 Examples of the shift-left approach:
-* Before stakeholders formally accept the requirements, review them.
+* Reviewing requirements before stakeholders formally accept them.
 * Writing a component test before the corresponding code is written.
 * Executing a performance efficiency test for a component during component testing.
 
@@ -34,6 +35,11 @@ Examples of the shift-left approach:
 ## 4.2.1. Equivalence Partitioning
 * Quantitative variables can be partitioned (for instance, whole numbers into negative and positive numbers).
 * Qualitative variables cannot be partitioned (each element is already a partition).
+
+## 4.5.3. Acceptance Test-driven Development (ATDD)
+* Derives tests from acceptance criteria as part of the system design process (Gärtner 2011).
+* Tests are written before the part of the application is developed to satisfy the tests.
+* ATDD can only derive tests from functionality explicitly defined in the AC.
 
 ## 5.4 Configuration management
 In testing, configuration management (CM) provides a discipline for identifying, controlling, and tracking work products such as test plans, test strategies, test conditions, test cases, test scripts, test results, test logs, and test reports as configuration items. For a complex configuration item (e.g., a test environment), CM records the items it consists of, their relationships, and their versions.
