@@ -1,9 +1,15 @@
 # ISTQB Tester Foundation preparation
-
-# Exam A
-
 Notes for questions failed.
 
-Q1:
+| Exam | Questions covered |
+| --- | --- |
+| A   |  1   |
+| B   |     |
+| C   |     |
+| D   |     |
+
+## Exam A
+
+### 1.4.1. Test Activities and Tasks
 * "Causing failures and identifying defects is a test objective of dynamic testing. 
 * User requirements != design requirements (that's why we do validation)."
