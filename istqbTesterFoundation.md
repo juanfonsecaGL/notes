@@ -1,5 +1,5 @@
 # ISTQB Tester Foundation preparation notes
-Notes for questions failed during my preparation for the exam. Please note that some of the notes are taken from the answer sheets provided by ISTQB.
+Notes for questions failed during my preparation for the exam. Please note that the majority of the notes are taken from the public answer sheets provided by ISTQB.
 
 Coverage:
 | Exam | Last questions covered |
